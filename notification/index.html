@@ -10,7 +10,7 @@
       if (window.Notification && Notification.permission !== "denied") {
         Notification.requestPermission(function (status) {
           // status is "granted", if accepted by user
-          var img = "./" + location.pathname + "icon.png";
+          var img = "./icon.png";
           var text = "Hey, I notify you";
           var notification = new Notification("This is a notification", {
             body: text,
