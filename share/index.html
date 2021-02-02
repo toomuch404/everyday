@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Share</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      button {
+        transform: scale(4);
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="share()">Share</button>
+    <script>
+      function share() {
+        if (!("share" in navigator)) {
+          alert("Web Share API not supported.");
+          return;
+        }
+
+        navigator
+          .share({
+            title: "SHARE MAH LOVE",
+            text: "Muack",
+            url: "https://toomuch404.github.io",
+          })
+          .then(() => console.log("Successful share"))
+          .catch((error) => console.log("Error sharing:", error));
+      }
+
+      function intent() {
+        if (!("Intent" in window)) {
+          alert("Web Intents API not supported.");
+          return;
+        }
+
+        var intent = new Intent(
+          "http://webintents.org/share",
+          "text/uri-list",
+          "https://toomuch404.github.io"
+        );
+        navigator.startActivity(
+          intent,
+          function () {
+            console.log("Successful share");
+          },
+          function (error) {
+            console.log("Error sharing:", error);
+          }
+        );
+      }
+    </script>
+  </body>
+</html>
