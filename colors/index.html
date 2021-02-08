@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Light</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .color-box {
+        width: 80px;
+        height: 80px;
+        margin: 20px;
+        cursor: pointer;
+      }
+      #background {
+        border: 1px solid transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="background">
+      <div id="color-palette">
+        <div class="color-box"></div>
+      </div>
+    </div>
+
+    <script>
+      const colors = [
+        "rgb(255,255,255)",
+        "rgb(174,76,60)",
+        "rgb(162,72,64)",
+        "rgb(209,158,76)",
+        "rgb(222,194,81)",
+        "rgb(155,176,75)",
+        "rgb(78,97,57)",
+        "rgb(70,129,161)",
+        "rgb(78,94,156)",
+        "rgb(207,207,207)",
+        "rgb(160,160,160)",
+        "rgb(37,37,37)",
+      ];
+      const palette = document.getElementById("color-palette");
+      const boxClone = palette.firstElementChild.cloneNode();
+      palette.firstElementChild.remove();
+
+      const background = document.getElementById("background");
+      colors.forEach((color) => {
+        const newBox = boxClone.cloneNode();
+        newBox.style.backgroundColor = color;
+        newBox.addEventListener(
+          "click",
+          (event) =>
+            (background.style.backgroundColor =
+              event.target.style.backgroundColor)
+        );
+        palette.appendChild(newBox);
+      });
+    </script>
+  </body>
+</html>
