@@ -1,0 +1,31 @@
+<head>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+    #part2 {
+      opacity: 0;
+    }
+
+    video {
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <video id="part1" height="100%" autoplay muted loop src="./part1.mp4"></video>
+  <video id="part2" height="100%" src="./part2.mp4"></video>
+
+  <script>
+    const video1 = document.getElementById("part1");
+    const video2 = document.getElementById("part2");
+
+    document.addEventListener("click", () => {
+      video2.style.opacity = 1;
+      video2.play();
+      setTimeout(() => (video2.style.opacity = 0), 2000);
+    });
+  </script>
+</body>

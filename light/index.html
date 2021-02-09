@@ -1,0 +1,30 @@
+<head>
+  <style>
+    html {
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      background-image: url(./3.jpg);
+      background-size: cover;
+      height: 100%;
+    }
+    #overlay {
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="overlay"></div>
+  <script>
+    const colors = ["rgba(255,255,255,0)", "rgba(5, 5, 5, 0.95)"];
+    let currentColorIndex = 0;
+    document.addEventListener("click", () => {
+      currentColorIndex = (currentColorIndex + 1) % 2;
+      document.getElementById("overlay").style.backgroundColor =
+        colors[currentColorIndex];
+    });
+  </script>
+</body>
