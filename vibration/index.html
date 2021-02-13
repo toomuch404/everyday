@@ -36,12 +36,21 @@
     </style>
   </head>
   <body>
-    <button onclick="vibrate(500)">Slow</button>
-    <button onclick="vibrate(100)">Fast</button>
+    <button onclick="startPersistentVibrate(100)">Short</button>
+    <button onclick="startPersistentVibrate(500)">Long</button>
 
     <script>
+      var vibrateInterval;
+
       function vibrate(interval) {
         window.navigator.vibrate(interval);
+      }
+
+      function startPersistentVibrate(duration) {
+        clearInterval(vibrateInterval);
+        vibrateInterval = setInterval(function () {
+          vibrate(duration);
+        }, 1000);
       }
     </script>
   </body>
