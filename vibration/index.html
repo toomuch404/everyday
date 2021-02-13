@@ -4,16 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vibrator</title>
-  </head>
-  <body>
-    <script>
-      function vibrate() {
-        window.navigator.vibrate([200, 100, 200]);
+    <style>
+      html,
+      body {
+        height: 100%;
       }
 
-      vibrate();
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
 
-      alert("Is Navigator Vibratior supported:", window.navigator);
+      button {
+        position: relative;
+        width: 300px;
+        height: 100px;
+        font-size: 3em;
+        font-weight: bold;
+        font-family: sans-serif;
+        border: 10px solid;
+        background-color: white;
+        margin: 10px;
+        outline: none;
+      }
+
+      button:active {
+        top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="vibrate(500)">Slow</button>
+    <button onclick="vibrate(100)">Fast</button>
+
+    <script>
+      function vibrate(interval) {
+        window.navigator.vibrate(interval);
+      }
     </script>
   </body>
 </html>
