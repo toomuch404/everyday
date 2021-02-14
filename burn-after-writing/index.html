@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burn After Writing</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      input {
+        border: 0;
+        outline: 0;
+        width: 80%;
+        max-width: 600px;
+        font-size: 2em;
+        font-family: sans-serif;
+      }
+
+      h1 {
+        margin-top: 30%;
+        text-transform: uppercase;
+        font-family: sans-serif;
+        letter-spacing: -1px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="question">How honest can you be when no one is watching?</h1>
+    <input id="answer" type="text" autofocus />
+    <script>
+      const listOfQuestions = [
+        "The person I loved most",
+        "The hardest thing I've ever done",
+        "If I could do it all over again, I would change",
+        "The one thing I regret in the whole world",
+        "I will never forgive",
+        "My greatest heartbreak",
+        "The last time I said 'I love you'",
+        "People I miss",
+        "I wish I had never met",
+        "I feel guilty for",
+        "Baggage I am carrying",
+        "The hardest choice I have ever had to make",
+      ];
+
+      const questionElement = document.getElementById("question");
+      const answerElement = document.getElementById("answer");
+
+      answerElement.addEventListener("keyup", function (event) {
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+          // Trigger the button element with a click
+          questionElement.innerText = getRandomQuestion();
+          event.target.value = "";
+        }
+      });
+
+      function getRandomQuestion() {
+        return listOfQuestions[
+          Math.floor(Math.random() * listOfQuestions.length)
+        ];
+      }
+
+      alert("Nothing is saved. Click enter to go to next question.");
+    </script>
+  </body>
+</html>
