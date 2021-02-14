@@ -70,7 +70,12 @@
         ];
       }
 
-      alert("Nothing is saved. Click enter to go to next question.");
+      alert(
+        "Nothing is saved. Click enter/return on keyboard for the next question."
+      );
+
+      // Mobile doesn't autofocus, why ah.
+      answerElement.focus();
     </script>
   </body>
 </html>
