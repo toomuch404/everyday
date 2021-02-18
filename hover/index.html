@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hover</title>
+    <style>
+      #background::before {
+        transform: scaleX(0);
+        transform-origin: bottom right;
+      }
+
+      #background:hover::before {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+
+      #background::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(
+          to right,
+          rgb(255, 131, 117),
+          rgb(255, 217, 134),
+          rgb(109, 255, 180),
+          rgb(128, 168, 255),
+          rgb(185, 162, 255),
+          rgb(255, 183, 255)
+        ); /* Standard syntax (must be last) */
+        z-index: -1;
+        transition: transform 0.5s ease;
+      }
+
+      h1::before {
+        transform: scaleX(0);
+        transform-origin: bottom right;
+      }
+
+      h1:hover::before {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+
+      h1::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: #89efff;
+        z-index: -1;
+        transition: transform 0.5s ease;
+      }
+
+      h1 {
+        position: relative;
+        font-size: 5rem;
+      }
+
+      html {
+        block-size: 100%;
+        inline-size: 100%;
+      }
+
+      body {
+        min-block-size: 100%;
+        min-inline-size: 100%;
+        display: grid;
+        place-content: center;
+        font-family: system-ui, sans-serif;
+        margin: 0;
+      }
+
+      #hidden {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 300px;
+        height: 300px;
+      }
+
+      #background {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+      }
+
+      #block {
+        position: fixed;
+        width: 100%;
+        height: 80%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="background"></div>
+    <div id="block"></div>
+    <h1>Highlight me baby</h1>
+  </body>
+</html>
