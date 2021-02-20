@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noob Hack</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+
+      input {
+        margin-top: 40vh;
+        outline: 0;
+        width: 500px;
+        height: 50px;
+        font-size: 2em;
+        border: 5px solid;
+        padding-left: 5px;
+      }
+
+      input::placeholder {
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <input
+      id="yourInput"
+      type="text"
+      placeholder="</h1><script>alert('lol');</script>"
+      value="</h1><script>alert('lol')</script>"
+      autofocus
+    />
+    <h1 id="output"></h1>
+
+    <script>
+      const ENTER_KEY = 13;
+      const outputElement = document.getElementById("output");
+      const inputElement = document.getElementById("yourInput");
+
+      inputElement.addEventListener("keyup", function (event) {
+        if (event.keyCode === ENTER_KEY) {
+          outputElement.innerHTML = event.target.value;
+          event.target.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>
