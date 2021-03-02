@@ -276,7 +276,7 @@
         }
       }
 
-      .text {
+      #text {
         color: white;
         background: none;
         border: 0;
@@ -341,9 +341,19 @@
             <span class="HomepageAnonHeaderHero_cy-105sh">$dark-gray</span>
             <span class="HomepageAnonHeaderHero_co-D6cgl">50%</span>);
           </p>
-          <input class="text" type="text" />
+          <input id="text" type="text" />
         </code>
       </div>
     </div>
+    <script>
+      // LOL it works as if an editable field, forcing you to complete the bracket
+      document.addEventListener("click", () => {
+        document.getElementById("text").focus();
+        document.querySelector(
+          ".HomepageAnonHeaderHero_line5-2d7u0"
+        ).style.animation =
+          "HomepageAnonHeaderHero_typing-5-1tYw5 3s steps(30) 12s forwards, HomepageAnonHeaderHero_cursor-persist-2n-ob";
+      });
+    </script>
   </body>
 </html>
