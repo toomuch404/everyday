@@ -5,8 +5,132 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TMF BLOG</title>
+    <style>
+      section {
+        margin-bottom: 50px;
+      }
+
+      h5 {
+        margin: 10px;
+      }
+
+      .book {
+        margin: 5vh auto;
+        width: 100%;
+        max-width: 800px;
+      }
+
+      .cover {
+        text-align: center;
+      }
+
+      .content h3 {
+        text-align: center;
+      }
+
+      .content .header {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.7em;
+      }
+
+      .content li a {
+        float: right;
+        text-decoration: none;
+        color: initial;
+      }
+
+      .content li span {
+        letter-spacing: 2px;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .content h3 {
+        margin-bottom: 0;
+      }
+
+      .item {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .filler::after {
+        display: block;
+        content: " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
+      }
+
+      .filler {
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        margin: 0 18px;
+      }
+
+      .chapter .chapter-number {
+        letter-spacing: 4px;
+      }
+
+      .chapter h1,
+      .chapter h3 {
+        font-weight: 500;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 5px;
+      }
+
+      .chapter::after {
+        text-align: center;
+        display: block;
+        content: "***";
+      }
+    </style>
   </head>
   <body>
-    HelloWorld!
+    <div class="book">
+      <section class="cover">
+        <div class="title">
+          <h1>TMF'S ADVENTURES</h1>
+          <h1>IN WONDERLAND</h1>
+        </div>
+        <div>
+          <h5>BY</h5>
+          <h5>SOMEONE</h5>
+        </div>
+      </section>
+
+      <section class="content">
+        <h3>CONTENTS.</h3>
+        <div class="header"><span>CHAPTER</span><span>PAGE</span></div>
+        <ol type="I">
+          <li>
+            <div class="item">
+              <span>HELLO, WORLD!</span>
+              <div class="filler"></div>
+              <a href="#helloworld">1</a>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <section class="chapter" id="helloworld">
+        <h1 class="chapter-number">CHAPTER I.</h1>
+
+        <div class="post">
+          <h3>Hello, world!</h3>
+          <p>
+            <span class="first-word">TMF</span> was beginning to get very tired
+            of napping every time, and of having nothing to do: once or twice
+            she had peeped into the possibility of youtubing, but she always
+            slept it off, "and what is the use of your life," thought TMF,
+            "without videos or writings!"
+          </p>
+          <p>
+            So she was considering in her own mind, whether the pleasure of
+            making a bad youtube video would be worth the trouble, when suddenly
+            a white rabbit with pink eyes ran close by her.
+          </p>
+        </div>
+      </section>
+    </div>
   </body>
 </html>
