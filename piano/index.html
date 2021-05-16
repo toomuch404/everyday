@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Piano</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #piano {
+        width: 100%;
+        max-width: 600px;
+      }
+      #piano img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="piano">
+      <img id="piano-image" src="./images/-1.png" />
+    </div>
+    <script>
+      const KEYS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+      const KEY_TO_SOUND_MAPPING = [
+        "high-e",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "a",
+        "b",
+        "high-c",
+        "high-d",
+      ];
+      const audioElements = [];
+      const pianoImage = document.getElementById("piano-image");
+
+      KEY_TO_SOUND_MAPPING.forEach((i) => {
+        audioElements.push(new Audio(`./sound/${i}.m4a`));
+      });
+
+      function resetPiano() {
+        pianoImage.src = `./images/-1.png`;
+      }
+
+      function playNote(key) {
+        audioElements[key].play();
+      }
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key in KEYS) {
+          pianoImage.src = `./images/${event.key}.png`;
+          playNote(event.key);
+        } else {
+          resetPiano();
+        }
+      });
+
+      document.addEventListener("keyup", function (event) {
+        resetPiano();
+      });
+    </script>
+  </body>
+</html>
