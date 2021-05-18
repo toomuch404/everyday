@@ -29,6 +29,7 @@
       <img id="piano-image" src="./images/-1.png" />
     </div>
     <script>
+      const DEFAULT_IMAGE = "-1";
       const KEYS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
       const KEY_TO_SOUND_MAPPING = [
         "high-e",
@@ -42,19 +43,15 @@
         "high-c",
         "high-d",
       ];
-      const audioElements = [];
       const pianoImage = document.getElementById("piano-image");
 
-      KEY_TO_SOUND_MAPPING.forEach((i) => {
-        audioElements.push(new Audio(`./sound/${i}.m4a`));
-      });
-
       function resetPiano() {
-        pianoImage.src = `./images/-1.png`;
+        pianoImage.src = `./images/${DEFAULT_IMAGE}.png`;
       }
 
       function playNote(key) {
-        audioElements[key].play();
+        const audio = new Audio(`./sound/${KEY_TO_SOUND_MAPPING[key]}.m4a`);
+        audio.play();
       }
 
       document.addEventListener("keydown", function (event) {
